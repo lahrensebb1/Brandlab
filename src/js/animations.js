@@ -70,6 +70,8 @@ export function runLoader({ reduceMotion, onHeroReady }) {
   gsap.set(".hero__plant", { x: 70, rotate: 6, opacity: 0, transformOrigin: "50% 100%" });
   gsap.set(".hero__papers", { y: 40, opacity: 0 });
   gsap.set(".hero__bubble", { scale: 0, opacity: 0, transformOrigin: "85% 100%" });
+  gsap.set(".hero__bubble2", { scale: 0, opacity: 0, transformOrigin: "50% 110%" });
+  gsap.set(".hero__badge", { scale: 0, opacity: 0, rotate: -24 });
   gsap.set(".hero__plane", { x: -180, y: 130, rotate: -30, opacity: 0 });
   gsap.set(".hero__floor", { scaleX: 0.4, opacity: 0 });
 
@@ -103,6 +105,8 @@ export function runLoader({ reduceMotion, onHeroReady }) {
     .to(heroBits, { y: 0, opacity: 1, duration: 0.8, stagger: 0.1 }, "<")
     .to(heroStrokes, { strokeDashoffset: 0, duration: 0.9, ease: "power2.inOut", stagger: 0.12 }, "<+0.15")
     .to(".hero__bubble", { scale: 1, opacity: 1, duration: 0.7, ease: "back.out(2.2)" }, "<+0.2")
+    .to(".hero__bubble2", { scale: 1, opacity: 1, duration: 0.7, ease: "back.out(2.2)" }, "<+0.15")
+    .to(".hero__badge", { scale: 1, opacity: 1, rotate: -8, duration: 0.8, ease: "back.out(1.8)" }, "<+0.1")
     /* plane flies in along its trail */
     .to(".hero__plane", { x: 0, y: 0, rotate: 0, opacity: 1, duration: 1.1, ease: "power2.out" }, "<-0.2")
     .to(trail, { strokeDashoffset: 0, duration: 1.1, ease: "power2.out" }, "<")
@@ -117,6 +121,8 @@ function startHeroIdle() {
   gsap.to(".mascot-drops", { y: -10, duration: 1.9, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 2.2 });
   gsap.to(".hero__plant svg", { rotate: 1.6, duration: 3.4, yoyo: true, repeat: -1, ease: "sine.inOut", transformOrigin: "50% 100%", delay: 2 });
   gsap.to(".hero__bubble", { y: -7, rotate: -1.5, duration: 2.8, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 2.4 });
+  gsap.to(".hero__bubble2", { y: -6, rotate: 1.2, duration: 3.1, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 2.6 });
+  gsap.to(".hero__badge", { rotate: -4, duration: 3.6, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 3 });
   gsap.to(".hero__plane", { y: -8, rotate: 3, duration: 2.2, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 2.8 });
 
   /* blink: squash the eye group every few seconds */
@@ -126,7 +132,7 @@ function startHeroIdle() {
       duration: 0.08,
       yoyo: true,
       repeat: 1,
-      svgOrigin: "617 332",
+      svgOrigin: "591 396",
       onComplete: () => gsap.delayedCall(gsap.utils.random(2.4, 5), blink),
     });
   };

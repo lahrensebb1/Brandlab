@@ -32,19 +32,23 @@
   <!-- ======================= NAV ======================= -->
   <header class="nav" id="nav">
     <a class="nav__brand" href="#top" aria-label="Brand Lab — home">
+      <svg class="nav__sparkle" viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M20 3 C21 13 24 16 34 20 C24 24 21 27 20 37 C19 27 16 24 6 20 C16 16 19 13 20 3 Z" fill="none" stroke="#121212" stroke-width="3" stroke-linejoin="round"/>
+      </svg>
       <!-- placeholder wordmark: swap for the real logo file in this slot -->
       <span class="logo" id="logo-slot">
         <em class="logo__brand">Brand</em><em class="logo__lab">Lab</em>
-        <svg class="logo__swash" viewBox="0 0 220 16" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M6 10 C 60 4 150 5 214 8" fill="none" stroke="#F59A13" stroke-width="6" stroke-linecap="round"/>
+        <svg class="logo__swash" viewBox="0 0 240 30" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M4 8 C 50 2 110 3 152 6" fill="none" stroke="#121212" stroke-width="7" stroke-linecap="round"/>
+          <path d="M30 22 C 100 14 180 15 236 19" fill="none" stroke="#F5B313" stroke-width="8" stroke-linecap="round"/>
         </svg>
       </span>
     </a>
     <nav class="nav__links" aria-label="Main">
+      <a href="#solution" class="is-active">Work</a>
       <a href="#services">Services</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#process">Process</a>
-      <a href="#faq">FAQ</a>
+      <a href="#process">About</a>
+      <a href="#faq">Journal</a>
       <a href="#start">Contact</a>
     </nav>
     <div class="nav__actions">
@@ -60,12 +64,12 @@
   <!-- mobile menu -->
   <div class="menu" id="menu" aria-hidden="true">
     <nav class="menu__links">
-      <a href="#problem">The problem</a>
+      <a href="#solution">Work</a>
       <a href="#services">Services</a>
       <a href="#pricing">Pricing</a>
       <a href="#process">Process</a>
       <a href="#faq">FAQ</a>
-      <a class="menu__cta" href="#start">Start your project →</a>
+      <a class="menu__cta" href="#start">Let's build →</a>
     </nav>
   </div>
 
@@ -74,126 +78,176 @@
 
     <!-- ======================= HERO ======================= -->
     <section class="hero" id="hero">
-      <div class="hero__grid" aria-hidden="true"></div>
-
       <div class="hero__inner">
         <div class="hero__copy">
           <h1 class="hero__title">
             <span class="line hero__t-serif">Ideas</span>
             <span class="line hero__t-hand hand">Built to</span>
-            <span class="line hero__t-serif hero__t-last">Stand&nbsp;Out.
+            <span class="line hero__t-serif hero__t-last">
+              <svg class="hero__flower" viewBox="0 0 44 44" aria-hidden="true">
+                <circle cx="22" cy="12" r="7" fill="#9D6EF7"/><circle cx="32" cy="20" r="7" fill="#9D6EF7"/>
+                <circle cx="28" cy="32" r="7" fill="#9D6EF7"/><circle cx="15" cy="32" r="7" fill="#9D6EF7"/>
+                <circle cx="11" cy="20" r="7" fill="#9D6EF7"/><circle cx="22" cy="22" r="6" fill="#7A48D8"/>
+              </svg>
+              Stand&nbsp;Out.
               <svg class="hero__swash" viewBox="0 0 480 36" preserveAspectRatio="none" aria-hidden="true">
-                <path class="draw" d="M10 26 C 120 10 300 12 446 18 C 460 19 466 22 458 26" fill="none" stroke="#F59A13" stroke-width="11" stroke-linecap="round"/>
+                <path class="draw" d="M10 26 C 120 10 300 12 446 18 C 460 19 466 22 458 26" fill="none" stroke="#F5A313" stroke-width="12" stroke-linecap="round"/>
               </svg>
             </span>
           </h1>
 
-          <p class="hero__sub hand">A creative lab turning bold ideas into <span class="accent-wrap">websites people love.
-            <svg class="u-stroke u-stroke--purple" viewBox="0 0 220 22" preserveAspectRatio="none" aria-hidden="true">
-              <path class="draw" d="M8 14 Q 80 6 212 10" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+          <p class="hero__sub hand">A creative studio turning bold ideas into digital experiences people <span class="accent-wrap">love.
+            <svg class="u-stroke u-stroke--purple" viewBox="0 0 90 22" preserveAspectRatio="none" aria-hidden="true">
+              <path class="draw" d="M6 14 Q 40 7 84 11" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
             </svg></span>
+            <svg class="hero__tick-doodle" viewBox="0 0 40 40" aria-hidden="true">
+              <path class="draw" d="M8 30 L 16 10 M20 32 L 30 16 M24 38 L 36 30" stroke="#121212" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            </svg>
           </p>
 
           <div class="hero__cta">
-            <a class="btn btn--primary" href="#start" data-magnetic>Start your project
+            <a class="btn btn--purple" href="#solution" data-magnetic>See our work
               <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
-            <a class="btn btn--dashed" href="#services">Explore services
+            <a class="btn btn--dashed" href="#services" data-magnetic>Explore services
               <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
 
           <ul class="hero__proof" role="list">
-            <li>Clear message</li>
-            <li>Professional look</li>
-            <li>Easy to contact</li>
+            <li>Strategy</li>
+            <li>Design</li>
+            <li>Development</li>
+            <li>Growth</li>
           </ul>
         </div>
 
         <div class="hero__stage">
           <!-- plant layer: swap inner SVG for plant asset -->
           <div class="hero__layer hero__plant" id="plant-slot" data-depth="0.04" aria-hidden="true">
-            <svg viewBox="0 0 360 600" fill="none">
-              <path d="M150 580h96l16-150H130l20 150z" fill="#8d63e0" stroke="#121212" stroke-width="6" stroke-linejoin="round"/>
-              <path d="M130 430h136l6-28H124l6 28z" fill="#B999F5" stroke="#121212" stroke-width="6" stroke-linejoin="round"/>
-              <path d="M196 402 C 200 300 208 240 248 170" stroke="#3a6b2e" stroke-width="13" stroke-linecap="round"/>
-              <path d="M186 402 C 178 320 150 270 96 230" stroke="#46813a" stroke-width="13" stroke-linecap="round"/>
-              <path d="M206 402 C 216 340 252 320 300 310" stroke="#46813a" stroke-width="11" stroke-linecap="round"/>
-              <path fill-rule="evenodd" clip-rule="evenodd" fill="#3E7A3A" stroke="#1d3d18" stroke-width="5" stroke-linejoin="round"
-                d="M248 170 C 160 150 120 80 178 30 C 252 -28 340 40 322 130 C 314 168 286 182 248 170 Z
-                   M210 120 C 230 100 252 96 274 104 L 268 84 C 246 76 222 84 206 102 Z
-                   M250 56 C 268 48 290 50 304 62 L 306 42 C 288 30 264 32 248 44 Z"/>
-              <path fill-rule="evenodd" clip-rule="evenodd" fill="#46813a" stroke="#1d3d18" stroke-width="5" stroke-linejoin="round"
-                d="M96 230 C 20 226 -18 160 28 116 C 86 60 178 104 170 188 C 166 226 138 240 96 230 Z
-                   M64 180 C 84 162 106 158 126 166 L 120 146 C 100 138 78 146 62 162 Z"/>
-              <path fill-rule="evenodd" clip-rule="evenodd" fill="#345f2b" stroke="#1d3d18" stroke-width="5" stroke-linejoin="round"
-                d="M300 310 C 352 296 380 246 352 212 C 318 170 248 198 256 258 C 260 292 272 312 300 310 Z"/>
+            <svg viewBox="0 0 520 880" fill="none">
+              <defs>
+                <g id="mleaf">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M0 0 C -20 -10 -60 -16 -92 -44 C -120 -68 -128 -104 -112 -132 C -140 -148 -146 -188 -122 -210 C -140 -236 -120 -272 -86 -274 C -90 -300 -56 -318 -28 -304 C -16 -312 16 -312 28 -304 C 56 -318 90 -300 86 -274 C 120 -272 140 -236 122 -210 C 146 -188 140 -148 112 -132 C 128 -104 120 -68 92 -44 C 60 -16 20 -10 0 0 Z
+                       M -52 -160 C -60 -184 -54 -216 -38 -228 C -46 -196 -48 -176 -44 -156 Z
+                       M 52 -160 C 60 -184 54 -216 38 -228 C 46 -196 48 -176 44 -156 Z"/>
+                  <path class="mleaf-vein" d="M0 -12 L 0 -286 M0 -60 L -52 -110 M0 -60 L 52 -110 M0 -130 L -60 -186 M0 -130 L 60 -186 M0 -200 L -42 -248 M0 -200 L 42 -248" stroke-width="6" stroke-linecap="round" fill="none"/>
+                </g>
+              </defs>
+              <!-- stems -->
+              <path d="M256 600 C 250 480 280 360 330 290" stroke="#5d7a3a" stroke-width="17" stroke-linecap="round"/>
+              <path d="M244 600 C 230 480 180 380 120 330" stroke="#6b8a45" stroke-width="15" stroke-linecap="round"/>
+              <path d="M266 600 C 290 520 350 470 408 450" stroke="#6b8a45" stroke-width="13" stroke-linecap="round"/>
+              <!-- leaves -->
+              <use href="#mleaf" transform="translate(335 300) scale(1.02) rotate(14)" fill="#4C7B3F" stroke="#2C4A24" stroke-width="6" style="--vein:#84A86B"/>
+              <use href="#mleaf" transform="translate(118 340) scale(0.88) rotate(-26)" fill="#41693a" stroke="#26421f" stroke-width="6"/>
+              <use href="#mleaf" transform="translate(410 460) scale(0.6) rotate(38)" fill="#385c30" stroke="#22391c" stroke-width="6"/>
+              <!-- pot -->
+              <ellipse cx="258" cy="858" rx="150" ry="14" fill="#121212" opacity="0.1"/>
+              <path d="M150 856 L 366 856 L 396 636 L 120 636 Z" fill="#8B5CF6" stroke="#121212" stroke-width="7" stroke-linejoin="round"/>
+              <path d="M180 850 L 196 642 M 282 642 L 280 852" stroke="#A47CF8" stroke-width="22" stroke-linecap="round" opacity="0.8"/>
+              <rect x="108" y="596" width="300" height="52" rx="12" fill="#9D6EF7" stroke="#121212" stroke-width="7"/>
+              <path d="M140 600 C 180 588 340 588 378 600" stroke="#2e2018" stroke-width="14" stroke-linecap="round"/>
             </svg>
           </div>
 
           <!-- mascot scene layer: swap inner SVG for mascot+beanbag asset -->
           <div class="hero__layer hero__mascot" id="mascot-slot" data-depth="0.1" aria-hidden="true">
-            <svg viewBox="0 0 900 700" fill="none">
-              <!-- droplets (animated group) -->
-              <g class="mascot-drops">
-                <path d="M586 96 c-10 22 6 38 24 34 16-4 22-26 6-38 8-18-4-34-22-30-16 4-20 20-8 34z" fill="#F59A13" stroke="#c97a06" stroke-width="4"/>
-                <circle cx="668" cy="78" r="26" fill="#F59A13" stroke="#c97a06" stroke-width="4"/>
-                <circle cx="700" cy="140" r="13" fill="#F59A13" stroke="#c97a06" stroke-width="4"/>
-                <path d="M600 170 c-4 12 8 20 18 14 8-6 6-20-6-22z" fill="#E48700"/>
-              </g>
+            <svg viewBox="0 0 1000 880" fill="none">
+              <defs>
+                <filter id="grain" x="0%" y="0%" width="100%" height="100%">
+                  <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" result="n"/>
+                  <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.4 0.4 0.4 0 0" result="a"/>
+                  <feComposite in="a" in2="SourceGraphic" operator="in"/>
+                </filter>
+                <clipPath id="scene-clip">
+                  <path d="M 200 640 C 160 540 250 460 390 455 C 470 420 600 415 690 445 C 840 430 950 520 935 630 C 920 745 770 815 565 822 C 370 828 250 760 200 640 Z"/>
+                  <path d="M 581 140 L 576 225 C 488 252 432 322 442 408 C 454 512 558 572 668 558 C 775 544 840 458 818 360 C 800 285 740 240 672 228 L 666 140 Z" transform="rotate(-8 620 400)"/>
+                </clipPath>
+              </defs>
+
               <!-- beanbag -->
-              <path d="M250 560 C 180 520 190 420 290 390 C 330 300 520 290 600 350 C 720 330 820 410 800 500 C 790 580 700 640 560 648 C 420 656 300 630 250 560 Z" fill="#E9A93C" stroke="#121212" stroke-width="8" stroke-linejoin="round"/>
-              <path d="M300 420 C 360 380 480 370 560 400 M270 520 C 320 560 480 590 620 570" stroke="#c9881f" stroke-width="8" stroke-linecap="round"/>
-              <!-- legs: crossed, both ending in side-view sneakers -->
-              <path d="M480 480 C 420 500 360 510 312 506" stroke="#121212" stroke-width="32" stroke-linecap="round"/>
-              <path d="M480 510 C 430 550 380 572 330 572" stroke="#121212" stroke-width="32" stroke-linecap="round"/>
-              <!-- upper sneaker -->
-              <g transform="rotate(-10 280 500)">
-                <path d="M250 478 c-30 2-38 36-6 44 l112 6 c26 1 30-26 6-35 l-44-17 c-12-18-30-20-44-10z" fill="#FFFDF6" stroke="#121212" stroke-width="7" stroke-linejoin="round"/>
-                <path d="M242 520 l132 6" stroke="#121212" stroke-width="13" stroke-linecap="round"/>
-                <path d="M292 478 l24 20 M306 472 l20 18" stroke="#121212" stroke-width="5" stroke-linecap="round"/>
-                <path d="M334 488 l22 9-24 6z" fill="#F59A13"/>
-              </g>
-              <!-- lower sneaker -->
-              <g transform="rotate(5 300 590)">
-                <path d="M268 556 c-30 2-38 36-6 44 l112 6 c26 1 30-26 6-35 l-44-17 c-12-18-30-20-44-10z" fill="#FFFDF6" stroke="#121212" stroke-width="7" stroke-linejoin="round"/>
-                <path d="M260 598 l132 6" stroke="#121212" stroke-width="13" stroke-linecap="round"/>
-                <path d="M310 556 l24 20 M324 550 l20 18" stroke="#121212" stroke-width="5" stroke-linecap="round"/>
-                <path d="M352 566 l22 9-24 6z" fill="#F59A13"/>
-              </g>
-              <!-- laptop -->
-              <g transform="rotate(-12 430 430)">
-                <rect x="320" y="330" width="220" height="158" rx="14" fill="#BdBdBd" stroke="#121212" stroke-width="8"/>
-                <path d="M414 384 l28 14-20 6 8 22-28-16 18-6z" fill="#121212"/>
-                <path d="M310 492 l240 4 14 22-268-6z" fill="#a8a8a8" stroke="#121212" stroke-width="7" stroke-linejoin="round"/>
-              </g>
+              <path d="M 200 640 C 160 540 250 460 390 455 C 470 420 600 415 690 445 C 840 430 950 520 935 630 C 920 745 770 815 565 822 C 370 828 250 760 200 640 Z" fill="#E8A33C" stroke="#1b1b1b" stroke-width="8" stroke-linejoin="round"/>
+              <path d="M 210 660 C 300 770 600 810 850 700 C 800 780 650 815 500 815 C 350 815 250 745 210 660 Z" fill="#D08E1F" opacity="0.55"/>
+              <path d="M 330 505 C 440 465 590 465 690 500 M 262 645 C 370 715 620 730 800 660" stroke="#C9871E" stroke-width="8" stroke-linecap="round"/>
+
               <!-- flask body -->
-              <g class="mascot-body">
-                <path d="M560 180 c-12 0-20 8-20 20 l-2 36 c-58 22-96 74-92 138 5 84 80 132 168 124 88-8 148-72 138-156 -8-62-56-100-112-110 l-2-32 c0-12-8-20-20-20z" fill="#FFFCF4" stroke="#121212" stroke-width="9" stroke-linejoin="round"/>
-                <path d="M536 182 h82 c10 0 16-8 12-18 -2-8-10-12-18-12 h-70 c-10 0-18 6-18 16 0 9 5 14 12 14z" fill="#FFFCF4" stroke="#121212" stroke-width="9" stroke-linejoin="round"/>
-                <path d="M552 168 c20 22 56 22 78 4" stroke="#F59A13" stroke-width="12" stroke-linecap="round"/>
+              <g class="mascot-body" transform="rotate(-8 620 400)">
+                <path d="M 581 140 L 576 225 C 488 252 432 322 442 408 C 454 512 558 572 668 558 C 775 544 840 458 818 360 C 800 285 740 240 672 228 L 666 140 Z" fill="#F8F1E4" stroke="#161616" stroke-width="9" stroke-linejoin="round"/>
+                <ellipse cx="768" cy="395" rx="32" ry="100" fill="#EBDFC8" opacity="0.8" transform="rotate(-9 768 395)"/>
+                <rect x="556" y="100" width="134" height="44" rx="20" fill="#F8F1E4" stroke="#161616" stroke-width="9"/>
+                <path d="M 596 160 v 52" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity="0.7"/>
                 <!-- face -->
                 <g class="mascot-eyes">
-                  <ellipse cx="582" cy="332" rx="17" ry="22" fill="#fff" stroke="#121212" stroke-width="6"/>
-                  <ellipse cx="652" cy="330" rx="17" ry="22" fill="#fff" stroke="#121212" stroke-width="6"/>
-                  <circle cx="588" cy="338" r="8" fill="#121212"/>
-                  <circle cx="646" cy="336" r="8" fill="#121212"/>
+                  <ellipse cx="550" cy="400" rx="33" ry="37" fill="#fff" stroke="#161616" stroke-width="7"/>
+                  <ellipse cx="632" cy="392" rx="33" ry="37" fill="#fff" stroke="#161616" stroke-width="7"/>
+                  <circle cx="540" cy="412" r="16" fill="#161616"/>
+                  <circle cx="620" cy="404" r="16" fill="#161616"/>
                 </g>
-                <path d="M560 296 c10-10 26-12 38-6 M634 290 c12-8 28-6 38 4" stroke="#121212" stroke-width="7" stroke-linecap="round"/>
-                <path d="M576 386 c22 26 64 24 88-4" stroke="#121212" stroke-width="8" stroke-linecap="round"/>
-                <path d="M596 400 c14 10 34 9 48-2" stroke="#121212" stroke-width="5" stroke-linecap="round"/>
+                <path d="M 505 345 c 18 -18 44 -20 62 -9 M 592 333 c 18 -13 44 -13 60 -2" stroke="#161616" stroke-width="10" stroke-linecap="round"/>
+                <path d="M 520 462 c 38 44 104 40 140 -12" stroke="#161616" stroke-width="10" stroke-linecap="round"/>
+                <path d="M 560 488 c 22 13 48 11 66 -7" stroke="#161616" stroke-width="5" stroke-linecap="round"/>
               </g>
-              <!-- arms -->
-              <path d="M530 380 C 490 420 470 440 470 460" stroke="#121212" stroke-width="26" stroke-linecap="round"/>
-              <ellipse cx="468" cy="466" rx="22" ry="16" fill="#121212"/>
-              <path d="M690 380 C 716 412 706 442 676 452" stroke="#121212" stroke-width="26" stroke-linecap="round"/>
-              <ellipse cx="668" cy="456" rx="20" ry="16" fill="#121212"/>
+
+              <!-- left arm (hidden end goes behind laptop) -->
+              <path d="M 470 450 C 432 472 410 500 404 524" stroke="#161616" stroke-width="27" stroke-linecap="round" fill="none"/>
+
+              <!-- right arm: fist under chin -->
+              <path d="M 805 432 C 828 480 800 522 748 518 C 722 516 706 502 700 486" stroke="#161616" stroke-width="28" stroke-linecap="round" fill="none"/>
+              <ellipse cx="696" cy="494" rx="27" ry="21" fill="#161616"/>
+
+              <!-- laptop -->
+              <g transform="rotate(-13 330 440)">
+                <path d="M 205 505 L 455 510 L 478 542 L 185 535 Z" fill="#A5A29C" stroke="#161616" stroke-width="8" stroke-linejoin="round"/>
+                <path d="M 230 524 l 200 5" stroke="#8d8a84" stroke-width="6" stroke-linecap="round"/>
+                <rect x="215" y="330" width="235" height="178" rx="14" fill="#B7B4AE" stroke="#161616" stroke-width="9"/>
+                <path d="M 345 382 l 36 17 -25 8 11 30 -38 -21 23 -8 z" fill="#161616"/>
+              </g>
+
+              <!-- raised leg with boot sole facing viewer -->
+              <path d="M 430 562 C 360 557 296 537 254 500" stroke="#161616" stroke-width="31" stroke-linecap="round" fill="none"/>
+              <g transform="rotate(-26 215 455)">
+                <path d="M 158 372 C 160 328 262 328 264 372 L 264 396 L 158 396 Z" fill="#FAF6EC" stroke="#161616" stroke-width="7"/>
+                <path d="M 196 348 l 26 11 -27 9 z" fill="#F2B43A"/>
+                <rect x="150" y="374" width="118" height="196" rx="56" fill="#2E2B28" stroke="#161616" stroke-width="7"/>
+                <path d="M 168 422 h 82 M 168 466 h 82 M 168 510 h 82" stroke="#5a544d" stroke-width="12" stroke-linecap="round"/>
+                <path d="M 178 548 h 62" stroke="#F2B43A" stroke-width="13" stroke-linecap="round"/>
+              </g>
+
+              <!-- crossed leg with side sneaker -->
+              <path d="M 470 590 C 410 648 342 686 280 696" stroke="#161616" stroke-width="31" stroke-linecap="round" fill="none"/>
+              <g transform="rotate(4 240 700)">
+                <path d="M 152 664 c -36 4 -44 44 -4 52 l 132 9 c 32 2 38 -32 8 -42 l -54 -21 c -14 -21 -44 -23 -58 -9 z" fill="#FAF6EC" stroke="#161616" stroke-width="7" stroke-linejoin="round"/>
+                <path d="M 142 716 l 162 9" stroke="#161616" stroke-width="15" stroke-linecap="round"/>
+                <path d="M 202 668 l 28 23 M 218 660 l 27 21" stroke="#161616" stroke-width="5" stroke-linecap="round"/>
+                <path d="M 254 682 l 28 11 -30 9 z" fill="#F2B43A"/>
+              </g>
+
+              <!-- liquid droplets -->
+              <g class="mascot-drops">
+                <path d="M 588 110 C 604 76 646 62 680 78" stroke="#F08A12" stroke-width="16" stroke-linecap="round" fill="none"/>
+                <g transform="rotate(26 722 58)">
+                  <rect x="688" y="44" width="70" height="28" rx="14" fill="#F08A12"/>
+                  <circle cx="690" cy="58" r="27" fill="#F08A12" stroke="#C76E04" stroke-width="5"/>
+                  <circle cx="760" cy="58" r="20" fill="#F08A12" stroke="#C76E04" stroke-width="5"/>
+                  <ellipse cx="680" cy="46" rx="9" ry="6" fill="#fff" opacity="0.85"/>
+                </g>
+                <circle cx="818" cy="84" r="33" fill="#F08A12" stroke="#C76E04" stroke-width="5"/>
+                <ellipse cx="805" cy="70" rx="10" ry="7" fill="#fff" opacity="0.85"/>
+                <circle cx="862" cy="150" r="15" fill="#F08A12" stroke="#C76E04" stroke-width="5"/>
+                <path d="M 648 46 c -8 16 4 28 18 23 c 12 -5 11 -23 -5 -29 z" fill="#F08A12"/>
+              </g>
+
+              <!-- paper-grain texture over the scene -->
+              <rect x="0" y="0" width="1000" height="880" clip-path="url(#scene-clip)" filter="url(#grain)" fill="#3a2c12" opacity="0.16"/>
             </svg>
           </div>
 
           <!-- floor papers layer: swap inner SVG for papers asset -->
           <div class="hero__layer hero__papers" id="papers-slot" data-depth="0.16" aria-hidden="true">
             <svg viewBox="0 0 700 230" fill="none">
+              <ellipse cx="320" cy="190" rx="260" ry="22" fill="#121212" opacity="0.05"/>
               <g transform="rotate(-4 300 140)">
                 <path d="M150 60 L 420 40 L 470 180 L 180 205 Z" fill="#FFFDF6" stroke="#121212" stroke-width="5" stroke-linejoin="round"/>
                 <rect x="210" y="80" width="90" height="60" rx="4" stroke="#26333d" stroke-width="5" transform="skewX(-8)"/>
@@ -214,16 +268,25 @@
               </g>
               <g transform="rotate(8 630 190)">
                 <rect x="560" y="178" width="130" height="20" rx="10" fill="#222" stroke="#121212" stroke-width="4"/>
+                <rect x="640" y="180" width="26" height="16" rx="4" fill="#777"/>
                 <path d="M552 188 l12-7v14z" fill="#121212"/>
               </g>
             </svg>
           </div>
 
-          <!-- speech bubble -->
+          <!-- speech bubble: ideas/code/impact -->
           <div class="hero__bubble" data-depth="0.2">
             <span class="hand">Ideas<br/>→ Code<br/>→ Impact</span>
             <svg class="hero__bubble-tail" viewBox="0 0 40 34" aria-hidden="true">
               <path d="M4 4 C 14 20 26 28 38 30 C 24 32 10 26 2 14 Z" fill="#FFFCF4" stroke="#121212" stroke-width="3" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <!-- purple sticker badge -->
+          <div class="hero__badge" data-depth="0.14" aria-hidden="true">
+            <span class="hand">Web &amp; App<br/>Design<br/>Marketing</span>
+            <svg class="hero__badge-ticks" viewBox="0 0 40 40" aria-hidden="true">
+              <path d="M8 30 L 16 12 M20 34 L 30 18" stroke="#121212" stroke-width="3.5" stroke-linecap="round"/>
             </svg>
           </div>
 
@@ -242,6 +305,17 @@
           <div class="hero__floor" aria-hidden="true"></div>
         </div>
       </div>
+
+      <!-- second speech bubble near the headline -->
+      <div class="hero__bubble2" aria-hidden="true">
+        <span class="hand">We build<br/>things that<br/>matter.</span>
+        <svg class="hero__bubble2-arrow" viewBox="0 0 50 56" aria-hidden="true">
+          <path class="draw" d="M10 4 C 26 18 34 34 36 50 M36 50 l-12-9 M36 50 l4-14" fill="none" stroke="#121212" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <svg class="hero__dash" viewBox="0 0 200 90" aria-hidden="true">
+        <path class="draw" d="M6 10 C 60 6 90 30 96 56 C 100 76 130 86 192 80" fill="none" stroke="#121212" stroke-width="3.5" stroke-dasharray="2 13" stroke-linecap="round"/>
+      </svg>
 
       <div class="hero__scrollhint" aria-hidden="true">
         <span class="hand">scroll</span>
