@@ -43,30 +43,40 @@ function splitWords(el) {
 export function runLoader({ reduceMotion, onHeroReady }) {
   const loader = document.getElementById("loader");
 
-  /* set initial hero states (only when we're going to animate) */
-  const heroLines = document.querySelectorAll(".hero__title .line");
-  const heroBits = [".hero__eyebrow", ".hero__sub", ".hero__cta", ".hero__proof"];
-
   if (reduceMotion) {
     loader.remove();
     onHeroReady?.();
     return;
   }
 
+  /* set initial hero states (only when we're going to animate) */
+  const heroLines = document.querySelectorAll(".hero__title .line");
+  const heroBits = [".hero__sub", ".hero__cta", ".hero__proof"];
+
   heroLines.forEach((line) => {
     const mask = document.createElement("span");
-    mask.style.cssText = "display:block;overflow:clip;";
+    /* pad + negative margin so descender flourishes (the swash) survive the clip */
+    mask.style.cssText = "display:block;overflow:clip;padding-bottom:0.34em;margin-bottom:-0.34em;";
     line.parentNode.insertBefore(mask, line);
     mask.appendChild(line);
   });
   gsap.set(".hero__title .line", { yPercent: 112 });
   gsap.set(heroBits, { y: 26, opacity: 0 });
   gsap.set(".nav", { y: -16, opacity: 0 });
-  gsap.set(".hero__blob", { scale: 0.4, opacity: 0, transformOrigin: "60% 40%" });
-  gsap.set([".hero__note", ".hero__scrollhint"], { opacity: 0 });
+  gsap.set(".hero__scrollhint", { opacity: 0 });
 
-  const heroStrokes = document.querySelectorAll(".hero .u-stroke .draw, .hero .doodle .draw");
+  /* stage initial states */
+  gsap.set(".hero__mascot", { y: 90, scale: 0.65, opacity: 0, transformOrigin: "50% 100%" });
+  gsap.set(".hero__plant", { x: 70, rotate: 6, opacity: 0, transformOrigin: "50% 100%" });
+  gsap.set(".hero__papers", { y: 40, opacity: 0 });
+  gsap.set(".hero__bubble", { scale: 0, opacity: 0, transformOrigin: "85% 100%" });
+  gsap.set(".hero__plane", { x: -180, y: 130, rotate: -30, opacity: 0 });
+  gsap.set(".hero__floor", { scaleX: 0.4, opacity: 0 });
+
+  const heroStrokes = document.querySelectorAll(".hero .u-stroke .draw, .hero .hero__swash .draw, .hero .doodle .draw");
   heroStrokes.forEach(prepDraw);
+  const trail = document.getElementById("plane-trail");
+  if (trail) prepDraw(trail);
 
   const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
@@ -81,13 +91,61 @@ export function runLoader({ reduceMotion, onHeroReady }) {
       onComplete: () => loader.remove(),
     }, "-=0.05")
     /* hero in */
-    .to(".hero__blob", { scale: 1, opacity: 1, duration: 1.2, ease: "power3.out" }, "-=0.45")
-    .to(".nav", { y: 0, opacity: 1, duration: 0.7 }, "<")
-    .to(".hero__title .line", { yPercent: 0, duration: 0.95, stagger: 0.09, ease: "power4.out" }, "<+0.08")
-    .add(() => onHeroReady?.(), "<+0.2")
-    .to(heroBits, { y: 0, opacity: 1, duration: 0.8, stagger: 0.09 }, "<+0.25")
-    .to(heroStrokes, { strokeDashoffset: 0, duration: 0.9, ease: "power2.inOut", stagger: 0.12 }, "<+0.1")
-    .to([".hero__note", ".hero__scrollhint"], { opacity: 1, duration: 0.6 }, "<+0.3");
+    .to(".nav", { y: 0, opacity: 1, duration: 0.7 }, "-=0.4")
+    .to(".hero__title .line", { yPercent: 0, duration: 0.95, stagger: 0.1, ease: "power4.out" }, "<+0.05")
+    /* the scene lands */
+    .to(".hero__floor", { scaleX: 1, opacity: 1, duration: 0.8 }, "<+0.15")
+    .to(".hero__mascot", { y: 0, scale: 1, opacity: 1, duration: 1.05, ease: "elastic.out(1, 0.62)" }, "<")
+    .to(".hero__mascot", { scaleY: 0.97, scaleX: 1.02, duration: 0.14, yoyo: true, repeat: 1, ease: "sine.inOut" }, "<+0.5")
+    .to(".hero__plant", { x: 0, rotate: 0, opacity: 1, duration: 0.9, ease: "back.out(1.6)" }, "<-0.3")
+    .to(".hero__papers", { y: 0, opacity: 1, duration: 0.7 }, "<+0.15")
+    .add(() => onHeroReady?.(), "<")
+    .to(heroBits, { y: 0, opacity: 1, duration: 0.8, stagger: 0.1 }, "<")
+    .to(heroStrokes, { strokeDashoffset: 0, duration: 0.9, ease: "power2.inOut", stagger: 0.12 }, "<+0.15")
+    .to(".hero__bubble", { scale: 1, opacity: 1, duration: 0.7, ease: "back.out(2.2)" }, "<+0.2")
+    /* plane flies in along its trail */
+    .to(".hero__plane", { x: 0, y: 0, rotate: 0, opacity: 1, duration: 1.1, ease: "power2.out" }, "<-0.2")
+    .to(trail, { strokeDashoffset: 0, duration: 1.1, ease: "power2.out" }, "<")
+    .to(".hero__scrollhint", { opacity: 1, duration: 0.6 }, "<+0.4");
+
+  startHeroIdle();
+}
+
+/* gentle perpetual motion + blinking + pointer parallax */
+function startHeroIdle() {
+  gsap.to(".hero__mascot", { y: "-=10", duration: 2.4, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 2.2 });
+  gsap.to(".mascot-drops", { y: -10, duration: 1.9, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 2.2 });
+  gsap.to(".hero__plant svg", { rotate: 1.6, duration: 3.4, yoyo: true, repeat: -1, ease: "sine.inOut", transformOrigin: "50% 100%", delay: 2 });
+  gsap.to(".hero__bubble", { y: -7, rotate: -1.5, duration: 2.8, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 2.4 });
+  gsap.to(".hero__plane", { y: -8, rotate: 3, duration: 2.2, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 2.8 });
+
+  /* blink: squash the eye group every few seconds */
+  const blink = () => {
+    gsap.to(".mascot-eyes", {
+      scaleY: 0.08,
+      duration: 0.08,
+      yoyo: true,
+      repeat: 1,
+      svgOrigin: "617 332",
+      onComplete: () => gsap.delayedCall(gsap.utils.random(2.4, 5), blink),
+    });
+  };
+  gsap.delayedCall(3.2, blink);
+
+  /* pointer parallax on stage layers */
+  if (matchMedia("(pointer: fine)").matches) {
+    const layers = gsap.utils.toArray(".hero [data-depth]");
+    const setters = layers.map((el) => ({
+      x: gsap.quickTo(el, "x", { duration: 0.8, ease: "power3.out" }),
+      y: gsap.quickTo(el, "y", { duration: 0.8, ease: "power3.out" }),
+      depth: parseFloat(el.dataset.depth),
+    }));
+    window.addEventListener("pointermove", (e) => {
+      const nx = (e.clientX / window.innerWidth - 0.5) * 2;
+      const ny = (e.clientY / window.innerHeight - 0.5) * 2;
+      setters.forEach((s) => { s.x(nx * s.depth * 60); s.y(ny * s.depth * 36); });
+    }, { passive: true });
+  }
 }
 
 /* ============================================================
@@ -190,11 +248,6 @@ export function initAnimations({ reduceMotion }) {
     opacity: 0.25,
     ease: "none",
     scrollTrigger: { trigger: ".hero", start: "bottom 90%", end: "bottom 30%", scrub: true },
-  });
-  gsap.to(".hero__blob", {
-    yPercent: 18,
-    ease: "none",
-    scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true },
   });
 
   /* ----- horizontal process ----- */

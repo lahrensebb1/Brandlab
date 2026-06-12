@@ -32,17 +32,25 @@
   <!-- ======================= NAV ======================= -->
   <header class="nav" id="nav">
     <a class="nav__brand" href="#top" aria-label="Brand Lab — home">
-      <span class="wordmark">brand <em>lab</em><i class="wordmark__dot">.</i></span>
+      <!-- placeholder wordmark: swap for the real logo file in this slot -->
+      <span class="logo" id="logo-slot">
+        <em class="logo__brand">Brand</em><em class="logo__lab">Lab</em>
+        <svg class="logo__swash" viewBox="0 0 220 16" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M6 10 C 60 4 150 5 214 8" fill="none" stroke="#F59A13" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+      </span>
     </a>
     <nav class="nav__links" aria-label="Main">
-      <a href="#problem">The problem</a>
       <a href="#services">Services</a>
       <a href="#pricing">Pricing</a>
       <a href="#process">Process</a>
       <a href="#faq">FAQ</a>
+      <a href="#start">Contact</a>
     </nav>
     <div class="nav__actions">
-      <a class="btn btn--primary btn--sm" href="#start" data-magnetic>Start your project</a>
+      <a class="btn btn--primary btn--sm" href="#start" data-magnetic>Let's build
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
       <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span>
       </button>
@@ -67,29 +75,32 @@
     <!-- ======================= HERO ======================= -->
     <section class="hero" id="hero">
       <div class="hero__grid" aria-hidden="true"></div>
-      <div class="hero__blob" aria-hidden="true"></div>
 
       <div class="hero__inner">
         <div class="hero__copy">
-          <p class="eyebrow hero__eyebrow">A creative lab for ambitious businesses</p>
-
           <h1 class="hero__title">
-            <span class="line">Your business</span>
-            <span class="line">is <span class="accent-wrap"><em class="accent">better</em>
-              <svg class="u-stroke" viewBox="0 0 220 26" preserveAspectRatio="none" aria-hidden="true">
-                <path class="draw" d="M8 18 Q 70 6 130 12 T 212 11" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
-              </svg></span> than</span>
-            <span class="line">your website</span>
-            <span class="line">makes it look.</span>
+            <span class="line hero__t-serif">Ideas</span>
+            <span class="line hero__t-hand hand">Built to</span>
+            <span class="line hero__t-serif hero__t-last">Stand&nbsp;Out.
+              <svg class="hero__swash" viewBox="0 0 480 36" preserveAspectRatio="none" aria-hidden="true">
+                <path class="draw" d="M10 26 C 120 10 300 12 446 18 C 460 19 466 22 458 26" fill="none" stroke="#F59A13" stroke-width="11" stroke-linecap="round"/>
+              </svg>
+            </span>
           </h1>
 
-          <p class="hero__sub">Brand Lab builds clean, clear websites that help people understand you faster — and trust you sooner.</p>
+          <p class="hero__sub hand">A creative lab turning bold ideas into <span class="accent-wrap">websites people love.
+            <svg class="u-stroke u-stroke--purple" viewBox="0 0 220 22" preserveAspectRatio="none" aria-hidden="true">
+              <path class="draw" d="M8 14 Q 80 6 212 10" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+            </svg></span>
+          </p>
 
           <div class="hero__cta">
-            <a class="btn btn--primary" href="#start" data-magnetic>Get a better website
+            <a class="btn btn--primary" href="#start" data-magnetic>Start your project
               <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
-            <a class="btn btn--ghost" href="#problem">See how it works</a>
+            <a class="btn btn--dashed" href="#services">Explore services
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
           </div>
 
           <ul class="hero__proof" role="list">
@@ -100,14 +111,135 @@
         </div>
 
         <div class="hero__stage">
-          <canvas id="mascot-canvas" aria-label="Brand Lab mascot — a friendly orange lab flask"></canvas>
-          <svg class="hero__note-arrow doodle" viewBox="0 0 120 90" aria-hidden="true">
-            <path class="draw" d="M8 10 C 30 55, 60 72, 100 66 M100 66 l-16 -7 M100 66 l-5 14" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- plant layer: swap inner SVG for plant asset -->
+          <div class="hero__layer hero__plant" id="plant-slot" data-depth="0.04" aria-hidden="true">
+            <svg viewBox="0 0 360 600" fill="none">
+              <path d="M150 580h96l16-150H130l20 150z" fill="#8d63e0" stroke="#121212" stroke-width="6" stroke-linejoin="round"/>
+              <path d="M130 430h136l6-28H124l6 28z" fill="#B999F5" stroke="#121212" stroke-width="6" stroke-linejoin="round"/>
+              <path d="M196 402 C 200 300 208 240 248 170" stroke="#3a6b2e" stroke-width="13" stroke-linecap="round"/>
+              <path d="M186 402 C 178 320 150 270 96 230" stroke="#46813a" stroke-width="13" stroke-linecap="round"/>
+              <path d="M206 402 C 216 340 252 320 300 310" stroke="#46813a" stroke-width="11" stroke-linecap="round"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" fill="#3E7A3A" stroke="#1d3d18" stroke-width="5" stroke-linejoin="round"
+                d="M248 170 C 160 150 120 80 178 30 C 252 -28 340 40 322 130 C 314 168 286 182 248 170 Z
+                   M210 120 C 230 100 252 96 274 104 L 268 84 C 246 76 222 84 206 102 Z
+                   M250 56 C 268 48 290 50 304 62 L 306 42 C 288 30 264 32 248 44 Z"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" fill="#46813a" stroke="#1d3d18" stroke-width="5" stroke-linejoin="round"
+                d="M96 230 C 20 226 -18 160 28 116 C 86 60 178 104 170 188 C 166 226 138 240 96 230 Z
+                   M64 180 C 84 162 106 158 126 166 L 120 146 C 100 138 78 146 62 162 Z"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" fill="#345f2b" stroke="#1d3d18" stroke-width="5" stroke-linejoin="round"
+                d="M300 310 C 352 296 380 246 352 212 C 318 170 248 198 256 258 C 260 292 272 312 300 310 Z"/>
+            </svg>
+          </div>
+
+          <!-- mascot scene layer: swap inner SVG for mascot+beanbag asset -->
+          <div class="hero__layer hero__mascot" id="mascot-slot" data-depth="0.1" aria-hidden="true">
+            <svg viewBox="0 0 900 700" fill="none">
+              <!-- droplets (animated group) -->
+              <g class="mascot-drops">
+                <path d="M586 96 c-10 22 6 38 24 34 16-4 22-26 6-38 8-18-4-34-22-30-16 4-20 20-8 34z" fill="#F59A13" stroke="#c97a06" stroke-width="4"/>
+                <circle cx="668" cy="78" r="26" fill="#F59A13" stroke="#c97a06" stroke-width="4"/>
+                <circle cx="700" cy="140" r="13" fill="#F59A13" stroke="#c97a06" stroke-width="4"/>
+                <path d="M600 170 c-4 12 8 20 18 14 8-6 6-20-6-22z" fill="#E48700"/>
+              </g>
+              <!-- beanbag -->
+              <path d="M250 560 C 180 520 190 420 290 390 C 330 300 520 290 600 350 C 720 330 820 410 800 500 C 790 580 700 640 560 648 C 420 656 300 630 250 560 Z" fill="#E9A93C" stroke="#121212" stroke-width="8" stroke-linejoin="round"/>
+              <path d="M300 420 C 360 380 480 370 560 400 M270 520 C 320 560 480 590 620 570" stroke="#c9881f" stroke-width="8" stroke-linecap="round"/>
+              <!-- legs: crossed, both ending in side-view sneakers -->
+              <path d="M480 480 C 420 500 360 510 312 506" stroke="#121212" stroke-width="32" stroke-linecap="round"/>
+              <path d="M480 510 C 430 550 380 572 330 572" stroke="#121212" stroke-width="32" stroke-linecap="round"/>
+              <!-- upper sneaker -->
+              <g transform="rotate(-10 280 500)">
+                <path d="M250 478 c-30 2-38 36-6 44 l112 6 c26 1 30-26 6-35 l-44-17 c-12-18-30-20-44-10z" fill="#FFFDF6" stroke="#121212" stroke-width="7" stroke-linejoin="round"/>
+                <path d="M242 520 l132 6" stroke="#121212" stroke-width="13" stroke-linecap="round"/>
+                <path d="M292 478 l24 20 M306 472 l20 18" stroke="#121212" stroke-width="5" stroke-linecap="round"/>
+                <path d="M334 488 l22 9-24 6z" fill="#F59A13"/>
+              </g>
+              <!-- lower sneaker -->
+              <g transform="rotate(5 300 590)">
+                <path d="M268 556 c-30 2-38 36-6 44 l112 6 c26 1 30-26 6-35 l-44-17 c-12-18-30-20-44-10z" fill="#FFFDF6" stroke="#121212" stroke-width="7" stroke-linejoin="round"/>
+                <path d="M260 598 l132 6" stroke="#121212" stroke-width="13" stroke-linecap="round"/>
+                <path d="M310 556 l24 20 M324 550 l20 18" stroke="#121212" stroke-width="5" stroke-linecap="round"/>
+                <path d="M352 566 l22 9-24 6z" fill="#F59A13"/>
+              </g>
+              <!-- laptop -->
+              <g transform="rotate(-12 430 430)">
+                <rect x="320" y="330" width="220" height="158" rx="14" fill="#BdBdBd" stroke="#121212" stroke-width="8"/>
+                <path d="M414 384 l28 14-20 6 8 22-28-16 18-6z" fill="#121212"/>
+                <path d="M310 492 l240 4 14 22-268-6z" fill="#a8a8a8" stroke="#121212" stroke-width="7" stroke-linejoin="round"/>
+              </g>
+              <!-- flask body -->
+              <g class="mascot-body">
+                <path d="M560 180 c-12 0-20 8-20 20 l-2 36 c-58 22-96 74-92 138 5 84 80 132 168 124 88-8 148-72 138-156 -8-62-56-100-112-110 l-2-32 c0-12-8-20-20-20z" fill="#FFFCF4" stroke="#121212" stroke-width="9" stroke-linejoin="round"/>
+                <path d="M536 182 h82 c10 0 16-8 12-18 -2-8-10-12-18-12 h-70 c-10 0-18 6-18 16 0 9 5 14 12 14z" fill="#FFFCF4" stroke="#121212" stroke-width="9" stroke-linejoin="round"/>
+                <path d="M552 168 c20 22 56 22 78 4" stroke="#F59A13" stroke-width="12" stroke-linecap="round"/>
+                <!-- face -->
+                <g class="mascot-eyes">
+                  <ellipse cx="582" cy="332" rx="17" ry="22" fill="#fff" stroke="#121212" stroke-width="6"/>
+                  <ellipse cx="652" cy="330" rx="17" ry="22" fill="#fff" stroke="#121212" stroke-width="6"/>
+                  <circle cx="588" cy="338" r="8" fill="#121212"/>
+                  <circle cx="646" cy="336" r="8" fill="#121212"/>
+                </g>
+                <path d="M560 296 c10-10 26-12 38-6 M634 290 c12-8 28-6 38 4" stroke="#121212" stroke-width="7" stroke-linecap="round"/>
+                <path d="M576 386 c22 26 64 24 88-4" stroke="#121212" stroke-width="8" stroke-linecap="round"/>
+                <path d="M596 400 c14 10 34 9 48-2" stroke="#121212" stroke-width="5" stroke-linecap="round"/>
+              </g>
+              <!-- arms -->
+              <path d="M530 380 C 490 420 470 440 470 460" stroke="#121212" stroke-width="26" stroke-linecap="round"/>
+              <ellipse cx="468" cy="466" rx="22" ry="16" fill="#121212"/>
+              <path d="M690 380 C 716 412 706 442 676 452" stroke="#121212" stroke-width="26" stroke-linecap="round"/>
+              <ellipse cx="668" cy="456" rx="20" ry="16" fill="#121212"/>
+            </svg>
+          </div>
+
+          <!-- floor papers layer: swap inner SVG for papers asset -->
+          <div class="hero__layer hero__papers" id="papers-slot" data-depth="0.16" aria-hidden="true">
+            <svg viewBox="0 0 700 230" fill="none">
+              <g transform="rotate(-4 300 140)">
+                <path d="M150 60 L 420 40 L 470 180 L 180 205 Z" fill="#FFFDF6" stroke="#121212" stroke-width="5" stroke-linejoin="round"/>
+                <rect x="210" y="80" width="90" height="60" rx="4" stroke="#26333d" stroke-width="5" transform="skewX(-8)"/>
+                <path d="M236 84 l68 50 M304 86 l-66 46" stroke="#26333d" stroke-width="4"/>
+                <path d="M200 160 h120 M204 178 h96" stroke="#26333d" stroke-width="6" stroke-linecap="round"/>
+                <path d="M340 90 h80 M342 108 h64 M344 126 h74" stroke="#26333d" stroke-width="5" stroke-linecap="round"/>
+              </g>
+              <path d="M60 110 L 200 96 L 226 176 L 86 192 Z" fill="#FFF9EC" stroke="#121212" stroke-width="5" stroke-linejoin="round"/>
+              <path d="M96 130 h80 M98 148 h62 M100 166 h70" stroke="#d99a36" stroke-width="5" stroke-linecap="round"/>
+              <g transform="rotate(-6 110 100)">
+                <rect x="60" y="46" width="104" height="100" rx="6" fill="#F8C93C" stroke="#121212" stroke-width="5"/>
+                <circle cx="98" cy="86" r="5" fill="#121212"/><circle cx="128" cy="84" r="5" fill="#121212"/>
+                <path d="M92 106 c10 12 28 12 40 0" stroke="#121212" stroke-width="5" stroke-linecap="round"/>
+              </g>
+              <g transform="rotate(5 560 120)">
+                <rect x="500" y="60" width="100" height="96" rx="6" fill="#B999F5" stroke="#121212" stroke-width="5"/>
+                <path d="M536 104 c-8-12 6-26 16-16 10-10 26 2 16 16 -8 10-16 16-16 16 s-8-6-16-16z" fill="none" stroke="#121212" stroke-width="5" stroke-linejoin="round"/>
+              </g>
+              <g transform="rotate(8 630 190)">
+                <rect x="560" y="178" width="130" height="20" rx="10" fill="#222" stroke="#121212" stroke-width="4"/>
+                <path d="M552 188 l12-7v14z" fill="#121212"/>
+              </g>
+            </svg>
+          </div>
+
+          <!-- speech bubble -->
+          <div class="hero__bubble" data-depth="0.2">
+            <span class="hand">Ideas<br/>→ Code<br/>→ Impact</span>
+            <svg class="hero__bubble-tail" viewBox="0 0 40 34" aria-hidden="true">
+              <path d="M4 4 C 14 20 26 28 38 30 C 24 32 10 26 2 14 Z" fill="#FFFCF4" stroke="#121212" stroke-width="3" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <!-- paper plane + trail -->
+          <svg class="hero__trail" viewBox="0 0 300 160" aria-hidden="true">
+            <path id="plane-trail" class="draw" d="M6 150 C 60 120 60 70 120 60 C 180 50 200 30 264 18" fill="none" stroke="#121212" stroke-width="3" stroke-dasharray="3 12" stroke-linecap="round" opacity="0.6"/>
           </svg>
-          <p class="hero__note hand">ideas&nbsp;→&nbsp;code&nbsp;→&nbsp;impact</p>
+          <svg class="hero__plane" data-depth="0.24" viewBox="0 0 90 64" aria-hidden="true">
+            <path d="M4 38 L 84 4 L 56 60 L 40 40 Z" fill="#8d63e0" stroke="#121212" stroke-width="4" stroke-linejoin="round"/>
+            <path d="M84 4 L 40 40 L 42 56 L 50 44" fill="#B999F5" stroke="#121212" stroke-width="4" stroke-linejoin="round"/>
+          </svg>
+
           <svg class="hero__spark doodle" viewBox="0 0 48 48" aria-hidden="true">
             <path class="draw" d="M24 4 C25 16 28 20 40 24 C28 28 25 32 24 44 C23 32 20 28 8 24 C20 20 23 16 24 4 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
           </svg>
+          <div class="hero__floor" aria-hidden="true"></div>
         </div>
       </div>
 

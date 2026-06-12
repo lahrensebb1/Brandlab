@@ -8,8 +8,11 @@ websites for businesses that are better than their website makes them look.
 - **Vite** — build & dev server
 - **GSAP + ScrollTrigger** — loader, line-mask reveals, draw-on hand-drawn strokes,
   scroll-velocity marquee, pinned horizontal process section, magnetic buttons
-- **Three.js** — procedurally built 3D mascot (toon-shaded lab flask with ink
-  outlines, cursor-tracking eyes and bubbling idea-droplets) — no model files needed
+- **Layered 2D hero** — mascot scene, plant and floor papers are separate layers
+  with pointer parallax, idle motion and blinking; each layer is a named slot
+  (`#mascot-slot`, `#plant-slot`, `#papers-slot`, `#logo-slot`) holding a
+  placeholder SVG that gets swapped for the final illustrated assets
+- (A procedural Three.js flask mascot lives in `src/js/scene.js`, currently unused)
 - **Lenis** — smooth scrolling
 - Self-hosted variable fonts: Bricolage Grotesque (display), Shantell Sans
   (handwritten accents), Hanken Grotesk (body)

@@ -2,7 +2,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import { initAnimations, runLoader } from "./animations.js";
-import { initMascot } from "./scene.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -150,35 +149,4 @@ document.querySelectorAll(".faq__item").forEach((item) => {
 
 /* ---------------- boot sequence ---------------- */
 initAnimations({ reduceMotion });
-
-let mascot = null;
-try {
-  mascot = initMascot(document.getElementById("mascot-canvas"), { reduceMotion });
-} catch (err) {
-  console.warn("WebGL mascot unavailable, using fallback.", err);
-  fallbackMascot();
-}
-
-runLoader({
-  reduceMotion,
-  onHeroReady: () => mascot?.enter(),
-});
-
-function fallbackMascot() {
-  const stage = document.querySelector(".hero__stage");
-  const holder = document.createElement("div");
-  holder.style.cssText = "position:absolute;inset:8%;display:grid;place-items:center;";
-  holder.innerHTML = `
-    <svg viewBox="0 0 200 220" width="78%" fill="none" aria-hidden="true">
-      <ellipse cx="100" cy="208" rx="56" ry="9" fill="#121212" opacity=".08"/>
-      <path d="M100 12c-5 0-9 4-9 9v23C63 50 44 73 44 100c0 31 25 54 56 54s56-23 56-54c0-27-19-50-47-56V21c0-5-4-9-9-9z" fill="#F59A13" stroke="#121212" stroke-width="7" stroke-linejoin="round"/>
-      <ellipse cx="81" cy="100" rx="13" ry="15" fill="#fff" stroke="#121212" stroke-width="5"/>
-      <ellipse cx="121" cy="100" rx="13" ry="15" fill="#fff" stroke="#121212" stroke-width="5"/>
-      <circle cx="84" cy="101" r="5" fill="#121212"/>
-      <circle cx="118" cy="101" r="5" fill="#121212"/>
-      <path d="M88 130c7 6 17 6 24 0" stroke="#121212" stroke-width="5" stroke-linecap="round"/>
-      <circle cx="152" cy="38" r="7" fill="#F59A13" stroke="#121212" stroke-width="4"/>
-      <circle cx="168" cy="22" r="5" fill="#F59A13" stroke="#121212" stroke-width="4"/>
-    </svg>`;
-  stage.appendChild(holder);
-}
+runLoader({ reduceMotion });
